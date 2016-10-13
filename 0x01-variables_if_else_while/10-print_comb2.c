@@ -10,14 +10,15 @@
  */
 int main(void)
 {
-	int i;
+	int i, j, k;
 
 	for (i = 0; i < 100; i++)
 	{
-		if (i > 9)
-			putchar((i / 10) + '0');
+		j = i / 10;
+		k = i % 10;
 
-		putchar((i % 10) + '0');
+		putchar(j + '0');
+		putchar(k + '0');
 
 		if (i < 99)
 		{

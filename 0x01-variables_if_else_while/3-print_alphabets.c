@@ -1,22 +1,28 @@
 #include <stdio.h>
 /**
  * main - main block
- * Description: Use `putchar` to print lowercase alphabet 10 times.
+ * Description: Use `putchar` to print lowercase and then uppercase alphabet.
  * Return: 0
  */
 int main(void)
 {
-	char c;
-	int i;
+	char c = 'a';
 
-	for (i = 0; i < 10; i++)
+	while (c <= 'z')
 	{
-		for (c = 'a'; c <= 'z'; c++)
-		{
-			putchar(c);
-		}
-		putchar('\n');
+		putchar(c);
+		c++;
 	}
+
+	c = 'A';
+
+	while (c <= 'Z')
+	{
+		putchar(c);
+		c++;
+	}
+
+	putchar('\n');
 
 	return (0);
 }

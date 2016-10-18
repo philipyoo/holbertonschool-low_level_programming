@@ -9,19 +9,19 @@
 int main(void)
 {
 	int count = 2;
-	unsigned long long int i = 1, j = 2;
-	unsigned long long int k;
+	long int i = 1, j = 2;
+	long int k;
 
-	printf("%llu, ", i);
+	printf("%lu, ", i);
 	while (count <= 50)
 	{
 		if (count == 50)
 		{
-			printf("%llu\n", j);
+			printf("%lu\n", j);
 		}
 		else
 		{
-			printf("%llu, ", j);
+			printf("%lu, ", j);
 		}
 
 		k = j;

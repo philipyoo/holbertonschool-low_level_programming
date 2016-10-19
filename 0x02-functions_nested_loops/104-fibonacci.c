@@ -13,7 +13,7 @@ int main(void)
 	int count;
 
 	printf("%lu, %lu, ", bk1, bk2);
-	for (count = 2; count <= 98; count++)
+	for (count = 2; count < 98; count++)
 	{
 		if (bk1 + bk2 > LARGEST || fr2 > 0 || fr1 > 0)
 		{
@@ -30,7 +30,7 @@ int main(void)
 			bk1 = bk2, bk2 = hold2;
 			printf("%lu", bk2);
 		}
-		if (count != 98)
+		if (count != 97)
 			printf(", ");
 	}
 	printf("\n");

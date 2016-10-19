@@ -7,20 +7,15 @@
  */
 void print_times_table(int n)
 {
-	int x = 0; /* factor */
-	int y; /* count */
-	int z; /* computed value */
+	int x = 0, y, z;
 
 	if (n > 15 || n < 0)
 		return;
-
 	while (x <= n)
 	{
-		y = 0;
-		while (y <= n)
+		for (y = 0; y <= n; y++)
 		{
 			z = x * y;
-
 			if (z > 99)
 			{
 				_putchar(z / 100 + '0');
@@ -40,16 +35,13 @@ void print_times_table(int n)
 				_putchar(z + '0');
 			}
 			else
-			{
 				_putchar(z + '0');
-			}
 
 			if (y != n)
 			{
 				_putchar(',');
 				_putchar(' ');
 			}
-			y++;
 		}
 		_putchar('\n');
 		x++;

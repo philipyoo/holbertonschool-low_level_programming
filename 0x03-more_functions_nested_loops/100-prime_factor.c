@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <math.h>
+
+int _isprime(int c);
 
 /**
  * main - main block
@@ -7,31 +10,17 @@
  */
 int main(void)
 {
-}
+	int c;
+	long num = 612852475143;
 
-/**
- * _isprime - determines if a number is prime
- * @c: number to test
- * Return: 1 if true, 0 if false
- */
-int _isprime(int c)
-{
-	int count; /* count all factors */
-	int i; /* incrementer to divide with */
-
-	count = 0;
-	i = 2;
-	while (i < c)
+	for (c = (int) sqrt(num); c > 2; c++)
 	{
-		if (count > 1)
+		if (num % c == 0)
+		{
+			printf("%d\n", c);
 			break;
-
-		if (c % i == 0)
-			count++
+		}
 	}
 
-	if (count == 0)
-		return (1);
-	else
-		return (0);
+	return (0);
 }

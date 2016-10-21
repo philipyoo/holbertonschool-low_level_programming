@@ -10,6 +10,7 @@ void print_diagonal(int n)
 	int c, i;
 
 	c = 0;
+
 	while (n > 0)
 	{
 		i = c;
@@ -23,8 +24,6 @@ void print_diagonal(int n)
 		c++;
 		n--;
 	}
-
-	if (c > 0)
+	if (c < 1)
 		_putchar('\n');
-
 }

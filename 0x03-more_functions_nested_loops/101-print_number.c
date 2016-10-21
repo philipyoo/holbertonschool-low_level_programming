@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * print_number - Function that prints an integer.
  * @n: int type number
@@ -7,13 +7,15 @@
  */
 void print_number(int n)
 {
-	int m; /* power of 10 */
+	long m; /* power of 10 */
 	int c; /* boolean check */
+	long num; /* convert int to long */
 
+	num = n;
 	/* negatives */
-	if (n < 0)
+	if (num < 0)
 	{
-		n *= -1;
+		num *= -1;
 		_putchar('-');
 	}
 
@@ -22,23 +24,23 @@ void print_number(int n)
 	c = 1;
 	while (c)
 	{
-		if (n / (m * 10) > 0)
+		if (num / (m * 10) > 0)
 			m *= 10;
 		else
 			c = 0;
 	}
 
 	/* count down */
-	while (n >= 0)
+	while (num >= 0)
 	{
 		if (m == 1)
 		{
-			_putchar(n % 10 + '0');
-			n = -1;
+			_putchar(num % 10 + '0');
+			num = -1;
 		}
 		else
 		{
-			_putchar((n / m % 10) + '0');
+			_putchar((num / m % 10) + '0');
 			m /= 10;
 		}
 	}

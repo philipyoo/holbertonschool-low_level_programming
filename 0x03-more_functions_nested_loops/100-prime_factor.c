@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
-int _isprime(int c);
-
 /**
  * main - main block
  * Description: Find and print the largest prime factor of the number
  * 612852475143
+ * Return: 0
  */
 int main(void)
 {

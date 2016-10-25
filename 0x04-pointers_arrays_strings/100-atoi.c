@@ -20,9 +20,12 @@ int _atoi(char *s)
 	int h, p;
 
 	h = 0;
-	p = 0;
+	p = 1;
 	for (i = 0; s[i] != '\0'; i++)
 	{
+		if (s[i] == '-')
+			p *= -1;
+
 		if (s[i] > 47 && s[i] < 58)
 		{
 			if (h > 0)
@@ -30,14 +33,11 @@ int _atoi(char *s)
 			else
 				h = (s[i] - '0');
 
-			if (s[i - 1] == '-')
-				p = 1;
-
 			if (s[i + 1] < 48 || s[i + 1] > 57)
 				break;
 		}
 	}
-	if (p)
+	if (p < 0)
 		h *= -1;
 
 	return (h);

@@ -32,6 +32,9 @@ char *cap_string(char *str)
 			else if (str[i] > 47 && str[i] < 58)
 				trigger = 0;
 		}
+
+		if (str[i] == '\t')
+			str[i] = ' ';
 	}
 	return (str);
 }

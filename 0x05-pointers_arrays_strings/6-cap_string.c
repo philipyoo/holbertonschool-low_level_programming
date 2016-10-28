@@ -12,11 +12,14 @@ char *cap_string(char *str)
 	int trigger;
 	char nots[] = ",;.!?(){}\n\t\" ";
 
+	str[0] -= 32;
 	for (i = 0, trigger = 0; str[i] != '\0'; i++)
 	{
 		for (c = 0; nots[c] != '\0'; c++)
 		{
 			if (nots[c] == str[i])
+				trigger = 1;
+			else if (str[i] > 64 && str[i] < 91)
 				trigger = 1;
 		}
 
@@ -32,9 +35,6 @@ char *cap_string(char *str)
 			else if (str[i] > 47 && str[i] < 58)
 				trigger = 0;
 		}
-
-		if (str[i] == '\t')
-			str[i] = ' ';
 	}
 	return (str);
 }

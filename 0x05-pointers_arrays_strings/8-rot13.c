@@ -20,5 +20,5 @@ char *rot13(char *s)
 				storel[s[i] - 97] : storeh[s[i] - 65];
 		}
 	}
-	return s;
+	return (s);
 }

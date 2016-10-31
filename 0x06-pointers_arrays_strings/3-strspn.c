@@ -11,28 +11,26 @@ unsigned int _strspn(char *s, char *accept)
 {
 	int i;
 	int j;
-	int max;
+	int c;
 
 	i = 0;
-	max = 0;
+	c = 0;
 
-	while (accept[i] != '\0')
+	while (s[i] != '\0')
 	{
 		j = 0;
-		while (s[j] != '\0')
+		while (accept[j] != '\0')
 		{
-			if (accept[i] == s[j])
+			if (s[i] == accept[j])
 			{
-				if (j > max)
-				{
-					max = j;
-				}
+				c++;
 				break;
 			}
 			j++;
 		}
+		if (accept[j] == '\0')
+			break;
 		i++;
 	}
-
-	return (max + 1);
+	return (c);
 }

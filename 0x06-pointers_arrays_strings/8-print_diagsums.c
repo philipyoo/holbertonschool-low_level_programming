@@ -10,11 +10,20 @@ void print_diagsums(int *a, int size)
 {
 	int i, sum, sizer;
 
+	if (size == 0)
+	{
+		printf("0, 0");
+		return;
+	}
+	else if (size == 1)
+	{
+		printf("%d, %d", a[0], a[0]);
+		return;
+	}
+
 	i = 0;
 	sum = 0;
 	sizer = size * size;
-	/* sum of 1 diag, sum of 2 diag */
-	/* first diag */
 	while (i < sizer)
 	{
 		if (i % (size + 1) == 0)

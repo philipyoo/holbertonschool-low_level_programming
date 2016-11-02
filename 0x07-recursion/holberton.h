@@ -9,3 +9,4 @@ int halp(int c, int i);
 int is_prime_number(int n);
 int hai(int n, int d);
 int _sqrt(int x);
+int is_palindrome(char *s);

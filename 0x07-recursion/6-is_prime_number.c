@@ -46,7 +46,7 @@ int _sqrt(int x)
 	{
 		square = i * i;
 		if (square >= x)
-			return (i);
+			return (i + 1);
 		i++;
 	}
 	return (1);

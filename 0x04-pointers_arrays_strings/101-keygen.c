@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define MAX 125
+#define MIN 1
+
 int main(void)
 {
 	int myrand;
@@ -10,8 +13,7 @@ int main(void)
 
 	for (count = 0, total = 2772; total > 122; count++)
 	{
-		srand(time(NULL));
-		myrand = (rand() % 122) + 1;
+		myrand = (rand() % (MAX + 1 - MIN)) + MIN;
 		printf("%c", myrand);
 		total -= myrand;
 	}

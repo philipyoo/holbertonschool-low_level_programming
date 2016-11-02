@@ -10,7 +10,8 @@ int is_prime_number(int n)
 {
 	if (n < 2)
 		return (0);
-
+	if (n < 4)
+		return (1);
 	return (hai(n, 2));
 }
 
@@ -46,7 +47,7 @@ int _sqrt(int x)
 	{
 		square = i * i;
 		if (square >= x)
-			return (i + 1);
+			return (i);
 		i++;
 	}
 	return (1);

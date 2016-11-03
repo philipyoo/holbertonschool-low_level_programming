@@ -18,22 +18,19 @@ int is_prime_number(int n)
 /**
  * _sqrt - return square root of number
  * @x: number
+ * @i: number incrementer acting as divisor
  * Return: square root of `x`
  */
 
-int _sqrt(int x)
+int _sqrt(int x, int i)
 {
-	int i, square;
+	int square;
 
-	i = 1;
-	while (i < x)
-	{
-		square = i * i;
-		if (square >= x)
-			return (i);
-		i++;
-	}
-	return (1);
+	square = i * i;
+	if (square >= x)
+		return (i);
+	else
+		return _sqrt(x, i + 1);
 }
 
 /**
@@ -47,7 +44,7 @@ int hai(int n, int d)
 {
 	if (n % d == 0)
 		return (0);
-	else if (_sqrt(n) < d)
+	else if (_sqrt(n, 1) < d)
 		return (1);
 	else
 		return (hai(n, d + 1));

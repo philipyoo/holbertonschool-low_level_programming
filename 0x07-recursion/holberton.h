@@ -8,5 +8,5 @@ int _sqrt_recursion(int n);
 int halp(int c, int i);
 int is_prime_number(int n);
 int hai(int n, int d);
-int _sqrt(int x);
+int _sqrt(int x, int i);
 int is_palindrome(char *s);

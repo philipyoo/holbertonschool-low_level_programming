@@ -30,7 +30,7 @@ int _sqrt(int x, int i)
 	if (square >= x)
 		return (i);
 	else
-		return _sqrt(x, i + 1);
+		return (_sqrt(x, i + 1));
 }
 
 /**

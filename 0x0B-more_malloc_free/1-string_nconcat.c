@@ -1,6 +1,5 @@
 #include "holberton.h"
-
-int _strlen(char *s);
+#include <stdio.h>
 
 /**
  * string_nconcat - concatenate 2 strings, only n bytes of s2
@@ -21,7 +20,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 
 	strlen1 = _strlen(s1);
-	p = malloc((strlen1 + (int)n) * sizeof(char));
+	p = malloc((strlen1 + (int)n + 1) * (int)sizeof(char));
 	for (i = 0, c = 0; i < (strlen1 + (int)n); i++)
 	{
 		if (i < strlen1)
@@ -34,12 +33,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	return (p);
 }
 
+/**
+ * _strlen - find length of string
+ * @s: string
+ * Return: length of string
+ */
+
 int _strlen(char *s)
 {
 	int i, total;
 
-	for (i = 0; s[i] != '\0'; i++, total++)
+	for (i = 0, total = 0; s[i] != '\0'; i++, total++)
 		;
-
 	return (total);
 }

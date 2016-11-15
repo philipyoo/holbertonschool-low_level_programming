@@ -30,20 +30,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (o == NULL)
 		return (NULL);
 
-	doge->name = _strncpy(n, name, i);
+	doge->name = _strcpy(n, name);
 	doge->age = age;
-	doge->owner = _strncpy(o, owner, j);
+	doge->owner = _strcpy(o, owner);
 
 	return (doge);
 }
 
-char *_strncpy(char *d, char *s, int n)
+char *_strcpy(char *d, char *s)
 {
 	int i;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; d[i] != '\0'; i++)
 		d[i] = s[i];
-	d[i++] = s[i];
+	d[i] = '\0';
 
 	return (d);
 }

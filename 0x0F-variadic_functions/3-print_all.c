@@ -63,7 +63,7 @@ void print_all(const char * const format, ...)
 	i = 0;
 	sep = "";
 	va_start(args, format);
-	while (format[i / 4] != '\0' && format != NULL)
+	while (format != NULL && format[i / 4] != '\0')
 	{
 		j = i % 4;
 		if (storage[j].type[0] == format[i / 4])

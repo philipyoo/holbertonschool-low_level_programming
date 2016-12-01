@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * insert_nodeint_at_index - insert a new node at a given position
  * @head: double pointer to head
@@ -21,7 +21,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
+	{
+		free(new);
 		return (NULL);
+	}
 	new->n = n;
 
 	if (current->next)

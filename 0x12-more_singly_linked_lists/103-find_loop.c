@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * find_listint_loop - find the loop in a linked list
  * @head: head of linked list
@@ -9,18 +9,29 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *hold;
-	listint_t *current;
+	listint_t *currents, *currentf;
 
-	current = head;
-	while (current != NULL)
+	currents = currentf = head;
+	do
 	{
-		hold = current;
-		current = current->next;
+		if (currents->next)
+			currents = currents->next;
+		else
+			return (NULL);
 
-		if (hold < current)
-			return (current);
+		if (currentf->next->next)
+			currentf = currentf->next->next;
+		else
+			return (NULL);
+	}
+	while (currentf != currents);
+
+	currents = head;
+	while (currentf != currents)
+	{
+		currentf = currentf->next;
+		currents = currents->next;
 	}
 
-	return (NULL);
+	return (currents);
 }

@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
 
-int _strlen(const char *s);
 /**
  * binary_to_uint - convert a binary number to an unsigned int
  * @b: char string

@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * print_binary - print binary representation of a number
@@ -10,7 +11,7 @@ void print_binary(unsigned long int n)
 
 	if (n == 0)
 	{
-		_putchar('0');
+		printf("0");
 		return;
 	}
 
@@ -22,10 +23,10 @@ void print_binary(unsigned long int n)
 	{
 		if (n >= greatest)
 		{
-			_putchar('1');
+			printf("1");
 			n -= greatest;
 		}
 		else
-			_putchar('0');
+			printf("0");
 	}
 }

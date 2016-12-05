@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * clear_bit - set the value of a bit to 0 at a given index
  * @n: pointer to decimal number to change
@@ -16,7 +16,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	for (i = 1; index > 0; i *= 2, index--)
 		;
 
-	if (i <= *n)
+	if (*n >> index)
 		*n -= i;
 
 	return (1);

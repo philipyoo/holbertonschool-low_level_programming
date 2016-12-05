@@ -7,7 +7,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int greatest;
+	unsigned long int greatest;
 
 	if (n == 0)
 	{

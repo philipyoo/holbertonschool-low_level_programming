@@ -15,18 +15,22 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	greatest = 1;
-	while (n >= (greatest * 2))
-		greatest *= 2;
+	greatest = n >> 1;
 
-	for (; greatest > 0; greatest = greatest >> 1)
+	printf("1");
+	for (; greatest > 0; greatest >>= 1)
 	{
-		if (n >= greatest)
+		if (greatest > 1)
 		{
-			printf("1");
-			n -= greatest;
+			if (greatest & 1)
+				printf("1");
+			else
+				printf("0");
 		}
-		else
-			printf("0");
 	}
+
+	if (n & 1)
+		printf("1");
+	else
+		printf("0");
 }

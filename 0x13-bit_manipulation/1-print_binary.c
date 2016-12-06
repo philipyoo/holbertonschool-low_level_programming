@@ -7,7 +7,8 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int greatest;
+	unsigned long int temp;
+	int shifts;
 
 	if (n == 0)
 	{
@@ -15,25 +16,28 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	greatest = n >> 1;
+	/* shift over and count until == 0 */
 
-	printf("1");
-	for (; greatest > 0; greatest >>= 1)
+	temp = n;
+	shifts = 0;
+	while ((temp >>= 1) > 0)
+		shifts++;
+
+	/* using >> shifts with decrementing powers, use & 1 */
+
+	for (; shifts > 0; shifts--)
 	{
-		if (greatest > 1)
+		if ((n >> shifts) & 1)
 		{
-			if (greatest & 1)
-				printf("1");
-			else
-				printf("0");
-		}
-	}
-
-	if (n > 10)
-	{
-		if (n & 1)
 			printf("1");
+		}
 		else
 			printf("0");
 	}
+
+	if (n & 1)
+		printf("1");
+	else
+		printf("0");
+
 }

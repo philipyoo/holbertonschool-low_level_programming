@@ -31,7 +31,7 @@ int main(int ac, char *av[])
 			dprintf(SE, "Error: Can't read from file %s\n", av[1]);
 			exit(98);
 		}
-		else
+		if (istatus > 0)
 		{
 			ostatus = write(output_fd, buf, (ssize_t) istatus);
 			if (ostatus == -1)

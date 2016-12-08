@@ -15,20 +15,21 @@ int main(int ac, char *av[])
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
 	input_fd = open(av[1], O_RDONLY);
 	if (input_fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
+		dprintf(STDOUT_FILENO,
+			"Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	output_fd = open(av[2], O_CREAT | O_RDWR, 0664);
 	if (output_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", av[2]);
+		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 
@@ -36,13 +37,15 @@ int main(int ac, char *av[])
 		istatus = read(input_fd, buf, MAXSIZE);
 		if (istatus == -1)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", av[1]);
+			dprintf(STDOUT_FILENO,
+				"Error: Can't read from file %s\n", av[1]);
 			exit(98);
 		}
 		ostatus = write(output_fd, buf, (ssize_t) istatus);
 		if (ostatus == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			dprintf(STDOUT_FILENO,
+				"Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	} while (istatus > 0);

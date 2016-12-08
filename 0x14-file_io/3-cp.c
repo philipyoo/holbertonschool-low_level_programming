@@ -23,7 +23,7 @@ int main(int ac, char *av[])
 		dprintf(SE, "Error: Can't read from file %s\n", av[1]), exit(98);
 	output_fd = open(av[2], O_CREAT | O_RDWR | O_TRUNC, mode);
 	if (output_fd == -1)
-		dprintf(2, "Error: Can't write to %s\n", av[2]), exit(99);
+		dprintf(SE, "Error: Can't write to %s\n", av[2]), exit(99);
 	do {
 		istatus = read(input_fd, buf, MAXSIZE);
 		if (istatus == -1)
@@ -31,11 +31,14 @@ int main(int ac, char *av[])
 			dprintf(SE, "Error: Can't read from file %s\n", av[1]);
 			exit(98);
 		}
-		ostatus = write(output_fd, buf, (ssize_t) istatus);
-		if (ostatus == -1)
+		else
 		{
-			dprintf(SE, "Error: Can't write to %s\n", av[2]);
-			exit(99);
+			ostatus = write(output_fd, buf, (ssize_t) istatus);
+			if (ostatus == -1)
+			{
+				dprintf(SE, "Error: Can't write to %s\n", av[2]);
+				exit(99);
+			}
 		}
 	} while (istatus > 0);
 	istatus = close(input_fd);

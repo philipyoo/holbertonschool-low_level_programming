@@ -12,24 +12,21 @@ int main(int ac, char *av[])
 {
 	int input_fd, output_fd, istatus, ostatus;
 	char buf[MAXSIZE];
+	mode_t mode;
 
+	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	if (ac != 3)
-	{
-		dprintf(2, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		dprintf(2, "Usage: cp file_from file_to\n"), exit(97);
+	if (av[1] == NULL)
+		dprintf(2, "Error: Can't read from file %s\n", av[1]), exit(98);
+	if (av[2] == NULL)
+		dprintf(2, "Error: Can't write to %s\n", av[2]), exit(99);
 	input_fd = open(av[1], O_RDONLY);
 	if (input_fd == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
-	output_fd = open(av[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+		dprintf(2, "Error: Can't read from file %s\n", av[1]), exit(98);
+	output_fd = open(av[2], O_CREAT | O_RDWR | O_TRUNC, mode);
 	if (output_fd == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", av[2]);
-		exit(99);
-	}
+		dprintf(2, "Error: Can't write to %s\n", av[2]), exit(99);
 	do {
 		istatus = read(input_fd, buf, MAXSIZE);
 		if (istatus == -1)
@@ -46,15 +43,9 @@ int main(int ac, char *av[])
 	} while (istatus > 0);
 	istatus = close(input_fd);
 	if (istatus == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", input_fd);
-		exit(100);
-	}
+		dprintf(2, "Error: Can't close fd %d\n", input_fd), exit(100);
 	ostatus = close(output_fd);
 	if (ostatus == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", output_fd);
-		exit(100);
-	}
+		dprintf(2, "Error: Can't close fd %d\n", output_fd), exit(100);
 	return (0);
 }

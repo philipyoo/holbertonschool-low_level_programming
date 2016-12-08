@@ -17,10 +17,6 @@ int main(int ac, char *av[])
 	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	if (ac != 3)
 		dprintf(2, "Usage: cp file_from file_to\n"), exit(97);
-	if (av[1] == NULL)
-		dprintf(2, "Error: Can't read from file %s\n", av[1]), exit(98);
-	if (av[2] == NULL)
-		dprintf(2, "Error: Can't write to %s\n", av[2]), exit(99);
 	input_fd = open(av[1], O_RDONLY);
 	if (input_fd == -1)
 		dprintf(2, "Error: Can't read from file %s\n", av[1]), exit(98);

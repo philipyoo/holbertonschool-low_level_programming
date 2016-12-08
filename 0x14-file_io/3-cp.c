@@ -32,8 +32,7 @@ int main(int ac, char *av[])
 		exit(99);
 	}
 
-	do
-	{
+	do {
 		istatus = read(input_fd, buf, MAXSIZE);
 		if (istatus == -1)
 		{
@@ -47,5 +46,8 @@ int main(int ac, char *av[])
 			exit(99);
 		}
 	} while (istatus > 0);
+
+	close(input_fd);
+	close(output_fd);
 	return (0);
 }

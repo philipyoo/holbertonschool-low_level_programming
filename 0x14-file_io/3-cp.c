@@ -37,9 +37,11 @@ int main(int ac, char *av[])
 		}
 	} while (istatus > 0);
 
-	if (close(input_fd) == -1)
+	istatus = close(input_fd);
+	if (istatus == -1)
 		dprintf(2, "Error: Can't close fd %d\n", input_fd); exit(100);
-	if (close(output_fd) == -1)
+	ostatus = close(output_fd);
+	if (ostatus == -1)
 		dprintf(2, "Error: Can't close fd %d\n", output_fd); exit(100);
 	return (0);
 }

@@ -9,7 +9,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *newpair, *tmp;
+	hash_node_t *newpair;
 	unsigned long int idx;
 
 	newpair = malloc(sizeof(hash_node_t));
@@ -24,12 +24,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[idx] == NULL)
 		ht->array[idx] = newpair;
 	else
-	{
-		tmp = ht->array[idx];
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = newpair;
-	}
+		newpair->next = ht->array[idx];
 
 	return (1);
 }

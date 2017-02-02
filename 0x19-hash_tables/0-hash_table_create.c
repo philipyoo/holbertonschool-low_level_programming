@@ -9,16 +9,17 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *hsh;
 	hash_node_t **a;
-
-	if (size == 0)
-		return (NULL);
+	int i;
 
 	hsh = malloc(sizeof(hash_table_t));
-	if (hsh == NULL)
+	if (hsh == NULL || size == 0)
 		return (NULL);
 	a = malloc(sizeof(hash_node_t *) * size);
 	if (a == NULL)
 		return (NULL);
+
+	for (i = 0; i < size; i++)
+		a[i] = NULL;
 
 	hsh->array = a;
 	hsh->size = size;

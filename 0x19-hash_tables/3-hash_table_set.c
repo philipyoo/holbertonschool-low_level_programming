@@ -13,12 +13,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int idx;
 
 	idx = key_index((const unsigned char *)key, ht->size);
-	if (ht->array[idx] != NULL)
+	tmp = ht->array[idx];
+
+	if (tmp != NULL)
 	{
-		tmp = ht->array[idx];
 		while (tmp)
 		{
-			if (strcmp(tmp->key, key))
+			if (strcmp(tmp->key, key) == 0)
 			{
 				tmp->key = (char *)key;
 				break;

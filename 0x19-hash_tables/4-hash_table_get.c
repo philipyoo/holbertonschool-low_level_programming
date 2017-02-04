@@ -16,6 +16,9 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	if (tmp == NULL)
 		return (NULL);
-	else
-		return (tmp->value);
+
+	while (strcmp(tmp->key, key) != 0)
+		tmp = tmp->next
+
+	return (tmp->value);
 }

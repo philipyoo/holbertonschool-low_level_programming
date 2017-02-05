@@ -10,6 +10,9 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i;
 	int toggle;
 
+	if (ht == NULL)
+		return;
+
 	printf("{");
 
 	for (i = 0, toggle = 0; i < ht->size; i++)

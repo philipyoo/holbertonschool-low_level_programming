@@ -1,8 +1,5 @@
-#ifndef ALGS_H
-#define ALGS_H
-#include <stdio.h>
-#include <stdlib.h>
-
+#ifndef SORT_H
+#define SORT_H
 /**
  * struct listint_s - Doubly linked list node
  *

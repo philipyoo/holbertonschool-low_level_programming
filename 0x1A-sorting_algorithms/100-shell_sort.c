@@ -18,7 +18,7 @@ void shell_sort(int *array, size_t size)
 
 	for (; gap > 0; gap /= 3)
 	{
-		insertion_sort(array, size, gap);
+		insertion_sort(array, (int)size, (int)gap);
 		print_array(array, size);
 	}
 }
@@ -31,7 +31,7 @@ void shell_sort(int *array, size_t size)
  */
 void insertion_sort(int *array, int size, int diff)
 {
-	int i, j, diff;
+	int i, j, hold;
 
 	for (i = diff; i < size; i++)
 	{

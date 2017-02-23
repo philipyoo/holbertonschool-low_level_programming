@@ -44,5 +44,5 @@ void insertion_sort_list(listint_t **list)
 		}
 		tmp = hold;
 	}
-
+	*list = get_head(*list);
 }

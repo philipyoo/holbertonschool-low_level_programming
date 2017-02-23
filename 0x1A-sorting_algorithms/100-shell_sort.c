@@ -9,7 +9,7 @@ void shell_sort(int *array, size_t size)
 {
 	size_t gap;
 
-	if (size == 0 || array == NULL)
+	if (size <= 1 || array == NULL)
 		return;
 
 	gap = 1;

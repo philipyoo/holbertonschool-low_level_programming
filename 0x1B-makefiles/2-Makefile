@@ -4,4 +4,4 @@ OBJ=$(SRC:.c=.o)
 NAME=holberton
 
 all: $(OBJ)
-	$(CC) $(OBJ) -o holberton
+	$(CC) $(OBJ) -o $(NAME)

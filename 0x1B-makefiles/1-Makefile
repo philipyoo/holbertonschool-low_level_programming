@@ -2,4 +2,4 @@ CC=gcc
 SRC=$(wildcard *.c)
 
 all: $(SRC)
-	$(CC) -o holberton $(SRC)
+	$(CC) $(SRC) -o holberton

@@ -18,23 +18,15 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	if (size == 1)
 		return (1);
-
-	if (size > 1)
+	if (left >= 0 && right >= 0 && left == right)
 	{
-		if (left >= 0 && right >= 0 && left == right)
-		{
-			pow = get_power(left + 1);
+		pow = get_power(left + 1);
 
-			if (pow - 1 == size)
-				return (1);
-			else
-				return (0);
-		}
-		else
-			return (0);
+		if (pow - 1 == size)
+			return (1);
 	}
-	else
-		return (0);
+
+	return (0);
 }
 
 /**

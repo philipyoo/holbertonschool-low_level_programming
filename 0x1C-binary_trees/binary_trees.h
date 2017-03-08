@@ -24,6 +24,11 @@ typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
+/* Helper Functions */
+int custom_binary_tree_height(const binary_tree_t *tree);
+int get_power(int exp);
+
+/* Main Exercise Functions */
 void binary_tree_print(const binary_tree_t *tree);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);

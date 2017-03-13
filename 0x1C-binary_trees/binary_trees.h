@@ -27,6 +27,7 @@ typedef struct binary_tree_s heap_t;
 /* Helper Functions */
 int custom_binary_tree_height(const binary_tree_t *tree);
 int get_power(int exp);
+void levelordering(const binary_tree_t *tree, void (*func)(int), int height);
 
 /* Main Exercise Functions */
 void binary_tree_print(const binary_tree_t *tree);
@@ -52,5 +53,5 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second);
-
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 #endif

@@ -31,6 +31,7 @@ void levelordering(const binary_tree_t *tree, void (*func)(int), int height);
 int bst_lesser(const binary_tree_t *node, int val);
 int bst_greater(const binary_tree_t *node, int val);
 bst_t *bst_insert_help(bst_t *node, int value);
+bst_t *bst_find_root(bst_t *node);
 
 /* Main Exercise Functions */
 void binary_tree_print(const binary_tree_t *tree);
@@ -61,4 +62,5 @@ int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
+bst_t *bst_remove(bst_t *root, int value);
 #endif

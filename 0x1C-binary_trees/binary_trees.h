@@ -30,6 +30,7 @@ int get_power(int exp);
 void levelordering(const binary_tree_t *tree, void (*func)(int), int height);
 int bst_lesser(const binary_tree_t *node, int val);
 int bst_greater(const binary_tree_t *node, int val);
+bst_t *bst_insert_help(bst_t *node, int value);
 
 /* Main Exercise Functions */
 void binary_tree_print(const binary_tree_t *tree);
@@ -57,4 +58,6 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 int binary_tree_is_bst(const binary_tree_t *tree);
+bst_t *bst_insert(bst_t **tree, int value);
+
 #endif

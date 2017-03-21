@@ -30,7 +30,9 @@ bst_t *bst_insert_help(bst_t *node, int value)
 	if (value > node->n)
 	{
 		if (node->right)
+		{
 			return (bst_insert_help(node->right, value));
+		}
 		else
 		{
 			new_node = binary_tree_node(node, value);
@@ -41,7 +43,9 @@ bst_t *bst_insert_help(bst_t *node, int value)
 	else if (value < node->n)
 	{
 		if (node->left)
+		{
 			return (bst_insert_help(node->left, value));
+		}
 		else
 		{
 			new_node = binary_tree_node(node, value);

@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-
+#include <stdio.h>
 /**
  * binary_trees_ancestor - find the lowest common ancestor of 2 nodes
  * @first: first node
@@ -9,7 +9,6 @@
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second)
 {
-	binary_tree_t *tmp, *tmp2;
 	int sz, sz2;
 
 	if (first == NULL || second == NULL)
@@ -17,46 +16,50 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	if (first->n == second->n)
 		return ((binary_tree_t *)first);
 
-	if (first->parent && second->parent)
+	sz = binary_tree_depth(first);
+	sz2 = binary_tree_depth(second);
+	if (sz > sz2)
 	{
-		if (first->parent->n == second->parent->n)
-			return ((binary_tree_t *)first->parent);
+		while (sz > sz2)
+		{
+			first = first->parent;
+			if (first == NULL)
+				return (NULL);
+			sz = binary_tree_depth(first);
+		}
+	}
+	else if (sz2 > sz)
+	{
+		while (sz2 > sz)
+		{
+			second = second->parent;
+			if (second == NULL)
+				return (NULL);
+			sz2 = binary_tree_depth(second);
+		}
 	}
 
-	tmp = binary_trees_ancestor(second->parent, first);
-	tmp2 = binary_trees_ancestor(first->parent, second);
-	if (tmp2 != NULL)
+	while (first && second)
 	{
-		sz = custom_binary_tree_height(tmp);
-		sz2 = custom_binary_tree_height(tmp2);
-		if (sz > sz2)
-			tmp = tmp2;
+		if (first->n == second->n)
+			return ((binary_tree_t *)first);
+		first = first->parent;
+		second = second->parent;
 	}
 
-	return (tmp);
+	return (NULL);
 }
 
 /**
- * custom_binary_tree_height - Measure height of a binary tree from given node
- * @tree: pointer to node of tree to measure
- * Description: Edited to work with balance factor function
- * Return: height of tree or 0 if NULL
+ * binary_tree_depth - measure the depth of a node in a binary tree.
+ * Depth is measured from root parent node going down.
+ * @node: pointer to node to measure depth of
+ * Return: depth of tree from given node
  */
-int custom_binary_tree_height(const binary_tree_t *tree)
+size_t binary_tree_depth(const binary_tree_t *node)
 {
-	int left, right;
-
-	if (tree == NULL)
-		return (-1);
-
-	if (tree->left == NULL && tree->right == NULL)
+	if (node == NULL || node->parent == NULL)
 		return (0);
 
-	left = custom_binary_tree_height(tree->left) + 1;
-	right = custom_binary_tree_height(tree->right) + 1;
-
-	if (left > right)
-		return (left);
-	else
-		return (right);
+	return (binary_tree_depth(node->parent) + 1);
 }

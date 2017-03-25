@@ -24,7 +24,7 @@ int bst_lesser(const binary_tree_t *node, int val)
 {
 	if (node == NULL)
 		return (1);
-	if (node->n > val)
+	if (node->n >= val)
 		return (0);
 
 	return (bst_lesser(node->left, val) &&
@@ -41,7 +41,7 @@ int bst_greater(const binary_tree_t *node, int val)
 {
 	if (node == NULL)
 		return (1);
-	if (node->n < val)
+	if (node->n <= val)
 		return (0);
 
 	return (bst_greater(node->left, val) &&

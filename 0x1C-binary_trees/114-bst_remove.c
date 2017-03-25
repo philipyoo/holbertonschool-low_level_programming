@@ -12,6 +12,9 @@ bst_t *bst_remove(bst_t *root, int value)
 	bst_t *del_node, *replacement, *new_root;
 	int status; /* 1 if right, 0 if left */
 
+	if (root == NULL || value == NULL)
+		return (NULL);
+
 	del_node = bst_search(root, value);
 	if (del_node == NULL)
 		return (NULL);

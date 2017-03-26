@@ -23,7 +23,7 @@ int binary_tree_balance(const binary_tree_t *tree)
  * of a binary tree from a given node
  * @tree: pointer to node of tree to measure
  * Description: Edited to work with balance factor function
- * Return: height of tree or 0 if NULL
+ * Return: height of tree or -1 if NULL
  */
 int custom_binary_tree_height(const binary_tree_t *tree)
 {

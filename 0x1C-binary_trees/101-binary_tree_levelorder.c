@@ -40,7 +40,7 @@ void levelordering(const binary_tree_t *tree, void (*func)(int), int height)
  * custom_binary_tree_height - Measure height of a binary tree from given node
  * @tree: pointer to node of tree to measure
  * Description: Edited to work with balance factor function
- * Return: height of tree or 0 if NULL
+ * Return: height of tree or -1 if NULL
  */
 int custom_binary_tree_height(const binary_tree_t *tree)
 {

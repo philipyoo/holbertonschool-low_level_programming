@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-
+#include <stdio.h>
 /**
  * binary_tree_is_avl - check if a binary tree is a valid AVL tree
  * @tree: pointer to root node of tree
@@ -14,6 +14,9 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 
 	lheight = custom_binary_tree_height(tree->left);
 	rheight = custom_binary_tree_height(tree->right);
+	printf("lheight: %d\n", lheight);
+	printf("rheight: %d\n", rheight);
+
 
 	if (abs(lheight - rheight) <= 1)
 		return (binary_tree_is_bst(tree));
@@ -32,10 +35,10 @@ int custom_binary_tree_height(const binary_tree_t *tree)
 	int left, right;
 
 	if (tree == NULL)
-		return (-1);
+		return (0);
 
 	if (tree->left == NULL && tree->right == NULL)
-		return (0);
+		return (1);
 
 	left = custom_binary_tree_height(tree->left) + 1;
 	right = custom_binary_tree_height(tree->right) + 1;

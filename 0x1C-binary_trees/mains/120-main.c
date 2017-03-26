@@ -53,5 +53,13 @@ int main(void)
 	binary_tree_print(root);
 	avl = binary_tree_is_avl(root);
 	printf("Is %d avl: %d\n", root->n, avl);
+
+	root = binary_tree_node(NULL, 98);
+	root->left = binary_tree_node(root, 10);
+	root->left->left = binary_tree_node(root->left, 1);
+	binary_tree_print(root);
+	avl = binary_tree_is_avl(root);
+	printf("Is %d avl: %d\n", root->n, avl);
+
 	return (0);
 }

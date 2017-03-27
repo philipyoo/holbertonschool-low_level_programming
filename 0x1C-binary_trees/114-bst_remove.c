@@ -18,7 +18,6 @@ bst_t *bst_remove(bst_t *root, int value)
 	del_node = bst_search(root, value);
 	if (del_node == NULL)
 		return (NULL);
-
 	replacement = NULL, status = 0;
 	if (del_node->right)
 	{
@@ -28,7 +27,6 @@ bst_t *bst_remove(bst_t *root, int value)
 	}
 	else if (del_node->left)
 		replacement = del_node->left;
-
 	if (replacement == NULL)
 	{
 		if (del_node->parent->left->n == del_node->n)

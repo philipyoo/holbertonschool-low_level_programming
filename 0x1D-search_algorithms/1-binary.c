@@ -10,23 +10,15 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int tmp, trigger = 0;
-        size_t b = 0;
-	size_t i;
+	int tmp;
+	size_t b = 0;
 
 	if (array == NULL || size == 0)
 		return (-1);
 	size--;
 	while (b <= size)
 	{
-		printf("Searching in array: ");
-		for (i = b; i <= size; i++)
-		{
-			printf("%d", array[i]);
-			if (i < size)
-				printf(", ");
-		}
-		printf("\n");
+		print_array(array, b, size);
 
 		tmp = (size - b) / 2 + b;
 		if (array[tmp] == value)
@@ -45,11 +37,24 @@ int binary_search(int *array, size_t size, int value)
 			else
 				size = tmp - 1;
 		}
-
-		if (trigger)
-			break;
-		if ((int)(size - b) < 0)
-			trigger = 1;
 	}
 	return (-1);
+}
+
+/**
+ * print_array - print the current array given rules on format
+ * @array: array to print
+ * @inc: starting incrementer index
+ * @size: increment up to this size
+ */
+void print_array(int *array, size_t inc, size_t size)
+{
+	printf("Searching in array: ");
+	for (; inc <= size; inc++)
+	{
+		printf("%d", array[inc]);
+		if (inc < size)
+			printf(", ");
+	}
+	printf("\n");
 }

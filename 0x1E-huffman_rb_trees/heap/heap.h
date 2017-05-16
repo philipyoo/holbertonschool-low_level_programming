@@ -34,9 +34,9 @@ typedef struct heap_s
 } heap_t;
 
 /* helpers */
-void min_swap_nodes(heap_t *heap, binary_tree_node_t *node);
 size_t get_power(heap_t *heap);
 binary_tree_node_t *get_parent_node(heap_t *heap, size_t power);
+void min_swap_nodes(heap_t *heap, binary_tree_node_t *node);
 
 /* functions */
 heap_t *heap_create(int (*data_cmp)(void *, void *));

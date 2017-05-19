@@ -44,7 +44,7 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 }
 
 /**
- * min_swap_nodes - Swap nodes given a node that was recently places in tree
+ * min_swap_nodes - Swap nodes given a node that was recently placed in tree
  * @heap: pointer to heap in which the node has to be inserted
  * @node: node to swap up the MIN Heap Tree
  */
@@ -89,23 +89,6 @@ void min_swap_nodes(heap_t *heap, binary_tree_node_t *node)
 		hold->left = NULL;
 		hold->right = NULL;
 	}
-}
-
-/**
- * get_power - helper method to find power of 2 based on heap size
- * @heap: pointer to heap in which the node has to be inserted
- * Return: power of 2 based on heap size
- */
-size_t get_power(heap_t *heap)
-{
-	size_t power, position;
-
-	power = 1;
-	position = heap->size + 1;
-	while ((power * 2) <= position)
-		power *= 2;
-
-	return (power);
 }
 
 /**

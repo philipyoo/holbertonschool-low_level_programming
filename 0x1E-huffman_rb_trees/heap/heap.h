@@ -44,9 +44,13 @@ void min_swap_nodes(heap_t *heap, binary_tree_node_t *node);
 void swap_root_down(heap_t *heap);
 binary_tree_node_t *get_last_node(heap_t *heap, size_t power);
 
+/* helper methods for delete */
+void recurse_delete_heap(binary_tree_node_t *node, void (*free_data)(void *));
+
 /* functions */
 heap_t *heap_create(int (*data_cmp)(void *, void *));
 binary_tree_node_t *binary_tree_node(binary_tree_node_t *parent, void *data);
 binary_tree_node_t *heap_insert(heap_t *heap, void *data);
 void *heap_extract(heap_t *heap);
+void heap_delete(heap_t *heap, void (*free_data)(void *));
 #endif

@@ -41,6 +41,7 @@ binary_tree_node_t *get_parent_node(heap_t *heap, size_t power);
 void min_swap_nodes(heap_t *heap, binary_tree_node_t *node);
 
 /* helper methods for extract */
+void swap_root_down(heap_t *heap);
 binary_tree_node_t *get_last_node(heap_t *heap, size_t power);
 
 /* functions */
